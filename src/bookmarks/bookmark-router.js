@@ -2,6 +2,7 @@ const express = require('express')
 const { v4: uuid } = require('uuid')
 const bookmarksRouter = express.Router()
 const bodyParser = express.json()
+const { isWebUri } = require('valid-url')
 const logger = require('../logger')
 
 const bookmarks = [{
@@ -16,14 +17,14 @@ bookmarksRouter
     .route('/bookmarks')
     .get((req, res) => {
         //Write a route handler for the endpoint GET /bookmarks that returns a list of bookmarks
-        res.json(bookmark)
+        res.json(bookmarks)
     })
     .post(bodyParser, (req, res) => {
         //Write a route handler for POST /bookmarks that accepts a JSON object representing a bookmark and adds it to the list of bookmarks after validation.
         const { title, url, rating, desc } = req.body
 
         if (!title) {
-            logger.error(`Title is required`)
+            logger.error(`Title is required: ${title}`)
             return res.status(400).send('Title is required')
         }
         if (!url || !isWebUri(url)) {
