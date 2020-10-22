@@ -19,7 +19,7 @@ app.use(cors())
 
 app.use(function validateBearerToken(req, res, next) {
   const apiToken = process.env.API_TOKEN
-  const authToken = req.get('Authorization')
+  const authToken = req.get('authorization')
 
   if (!authToken || authToken.split(' ')[1] !== apiToken) {
     logger.error(`Unauthorized request to path: ${req.path}`)

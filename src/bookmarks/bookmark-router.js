@@ -9,8 +9,8 @@ const bookmarks = [{
     id: 0,
     title: 'Google',
     url: 'http://www.google.com',
+    description: 'Internet-related services and products.',
     rating: '3',
-    desc: 'Internet-related services and products.'
 }]
 
 bookmarksRouter
@@ -21,7 +21,9 @@ bookmarksRouter
     })
     .post(bodyParser, (req, res) => {
         //Write a route handler for POST /bookmarks that accepts a JSON object representing a bookmark and adds it to the list of bookmarks after validation.
-        const { title, url, rating, desc } = req.body
+        console.log(req.body)
+        const { title, url, description, rating } = req.body
+        const ratingNum = parseInt(rating)
 
         if (!title) {
             logger.error(`Title is required: ${title}`)
@@ -31,9 +33,13 @@ bookmarksRouter
             logger.error(`Invalid URL: ${url}`)
             return res.status(400).send('A valid URL is required')
         }
-        if (!rating || !Number.isInteger(rating) || rating < 0 || rating > 5){
+        if (!rating || !Number.isInteger(ratingNum) || ratingNum < 0 || rating > 5){
             logger.error(`invalid rating: ${rating}`)
             return res.status(400).send('A rating of 0 to 5 is required')
+        }
+        if (!description){
+            logger.error(`Description is required: ${description}`)
+            return res.status(400).send('Description is required')
         }
         
         const id = uuid()
@@ -41,8 +47,8 @@ bookmarksRouter
             id,
             title,
             url,
-            rating,
-            desc
+            description,
+            rating
         }
 
         bookmarks.push(bookmark);

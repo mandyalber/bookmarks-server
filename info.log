@@ -22,3 +22,20 @@
 {"message":"invalid rating: undefined","level":"error"}
 {"message":"Bookmark with id 86a0f632-206f-4ab9-93bd-3ca667b24ee9 created","level":"info"}
 {"message":"Bookmark with id ea722fca-6d77-43f1-9d7b-75d9180f8771 created","level":"info"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Unauthorized request to path: /bookm-H","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"invalid rating: 1","level":"error"}
+{"message":"invalid rating: 1","level":"error"}
+{"message":"invalid rating: 1","level":"error"}
+{"message":"invalid rating: 1","level":"error"}
+{"message":"invalid rating: 1","level":"error"}
+{"message":"invalid rating: 1","level":"error"}
+{"message":"invalid rating: 2","level":"error"}
+{"message":"invalid rating: 1","level":"error"}
+{"message":"invalid rating: 1","level":"error"}
+{"message":"invalid rating: 1","level":"error"}
+{"message":"invalid rating: 1","level":"error"}
+{"message":"Bookmark with id ca851522-fc79-4385-95ef-ab54409ef099 created","level":"info"}
+{"message":"Bookmark with id 3cf614fb-9bf1-461a-a971-ff77fba02bef created","level":"info"}
+{"message":"Bookmark with id 26b5effc-ddc9-479f-957b-b45197494370 created","level":"info"}
