@@ -66,3 +66,37 @@
 {"message":"Bookmark with id 123456 not found.","level":"error"}
 {"message":"Bookmark with id 123456 not found.","level":"error"}
 {"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Unauthorized request to path: /xss","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"invalid rating: invalid","level":"error"}
+{"message":"Invalid URL: htp://invalid-url","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"invalid rating: invalid","level":"error"}
+{"message":"Invalid URL: htp://invalid-url","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"invalid rating: invalid","level":"error"}
+{"message":"Invalid URL: htp://invalid-url","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"invalid rating: invalid","level":"error"}
+{"message":"Invalid URL: htp://invalid-url","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"invalid rating: invalid","level":"error"}
+{"message":"Invalid URL: htp://invalid-url","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"Bookmark with id 123 not found.","level":"error"}
+{"message":"invalid rating: invalid","level":"error"}
+{"message":"Invalid URL: htp://invalid-url","level":"error"}
