@@ -5,6 +5,7 @@ const xss = require('xss')
 const { isWebUri } = require('valid-url')
 const bookmarksService = require('./bookmarks-service')
 const logger = require('../logger')
+const path = require('path')
 
 const serializeBookmark = bookmark => ({
     id: bookmark.id,
@@ -15,7 +16,7 @@ const serializeBookmark = bookmark => ({
 })
 
 bookmarksRouter
-    .route('/bookmarks')
+    .route('/')
     .get((req, res, next) => {
         //Refactor your GET methods and tests to ensure that all bookmarks get sanitized.
         bookmarksService.getAllBookmarks(req.app.get('db'))
@@ -48,13 +49,15 @@ bookmarksRouter
 
         bookmarksService.insertBookmark(req.app.get('db'), newBookmark)
             .then(bookmark => {
-                res.status(201).location(`/bookmarks/${bookmark.id}`).json(serializeBookmark(bookmark))
+                res.status(201)
+                .location(path.posix.join(req.originalUrl, `/${bookmark.id}`))
+                .json(serializeBookmark(bookmark))
             })
             .catch(next)
     })
 
 bookmarksRouter
-    .route('/bookmarks/:id')
+    .route('/:id')
     .all((req, res, next) => {
         const { id } = req.params
         bookmarksService.getById(req.app.get('db'), id)
@@ -78,6 +81,26 @@ bookmarksRouter
         //Refactor your DELETE handler to support removing bookmarks from the database
         const { id } = req.params
         bookmarksService.deleteBookmark(req.app.get('db'), id)
+            .then(numRowsAffected => {
+                res.status(204).end()
+            })
+            .catch(next)
+    })
+    // Add an endpoint to support updating bookmarks using a PATCH request
+    .patch(jsonParser, (req, res, next) => {
+        const { title, url, description, rating } = req.body
+        const bookmarkToUpdate = { title, url, description, rating }
+
+        const numberOfValues = Object.values(bookmarkToUpdate).filter(Boolean).length
+           if (numberOfValues === 0) {
+             return res.status(400).json({
+               error: {
+                 message: `Request body must contain either 'title', 'url', 'rating' or 'description'`
+               }
+             })
+           }
+
+        bookmarksService.updateBookmark(req.app.get('db'), req.params.id, bookmarkToUpdate)
             .then(numRowsAffected => {
                 res.status(204).end()
             })
